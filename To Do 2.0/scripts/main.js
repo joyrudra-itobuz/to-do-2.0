@@ -90,9 +90,8 @@ let allSpwanedTasks = document.querySelectorAll(".spawn-div");
 const makeTaskDelete = (tempID) => {
   let parentElement = document.getElementById(tempID);
   parentElement.parentNode.remove();
-  let index = taskStorer2.findIndex(
-    (item) => Number(item.id) == Number(tempID)
-  );
+  let index = taskStorer2.findIndex(() => Number(tempID));
+  //
   taskStorer2.splice(index, 1);
 };
 
@@ -101,7 +100,9 @@ let showAllTaskButton = document.querySelector(".show-all-task-button");
 showAllTaskButton.onclick = () => {
   for (const key in taskStorer2) {
     console.log(taskStorer2[key]);
-    document.getElementById(taskStorer2[key].id).style.display = "flex";
+    if (taskStorer2[key] !== null) {
+      document.getElementById(taskStorer2[key].id).style.display = "flex";
+    }
   }
 };
 
@@ -111,11 +112,13 @@ const showCompletedButton = document.querySelector(".show-completed-button");
 showCompletedButton.onclick = () => {
   for (const key in taskStorer2) {
     // console.log(taskStorer2[key]);
-    if (taskStorer2[key].checked == true) {
-      // console.log("hi");
-      document.getElementById(taskStorer2[key].id).style.display = "flex";
-    } else {
-      document.getElementById(taskStorer2[key].id).style.display = "none";
+    if (taskStorer2[key] !== null) {
+      if (taskStorer2[key].checked == true) {
+        // console.log("hi");
+        document.getElementById(taskStorer2[key].id).style.display = "flex";
+      } else {
+        document.getElementById(taskStorer2[key].id).style.display = "none";
+      }
     }
   }
   // for (let i = 0; i < taskStorer2.length; i++) {
