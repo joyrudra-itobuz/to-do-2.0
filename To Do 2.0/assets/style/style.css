@@ -19,6 +19,7 @@ input {
   margin-top: 1rem;
   margin-left: 33.33%;
   display: flex;
+  overflow: scroll;
   width: 33.33%;
   justify-content: space-between;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
@@ -32,6 +33,7 @@ delete-task {
 }
 
 .spawn-div-buttons {
+  margin-left: 0.5rem;
   display: flex;
   justify-content: end;
   gap: 0.2rem;
